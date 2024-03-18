@@ -823,7 +823,7 @@ whmapi1 php_set_handler version=ea-php56 handler=cgi
 whmapi1 php_set_handler version=ea-php70 handler=cgi
 whmapi1 php_set_handler version=ea-php71 handler=cgi
 whmapi1 php_set_handler version=ea-php72 handler=cgi
-whmapi1 php_set_system_default_version version=ea-php72
+whmapi1 php_set_system_default_version version=ea-php74
 echo "Configuring PHP-FPM..."
 whmapi1 php_set_default_accounts_to_fpm default_accounts_to_fpm=1
 whmapi1 convert_all_domains_to_fpm
@@ -883,7 +883,7 @@ sed  -i '/\[mysqld\]/a max_heap_table_size=256M' /etc/my.cnf
 sed  -i '/\[mysqld\]/a # WNPower pre-configured values' /etc/my.cnf
 /scripts/restartsrv_mysql
 echo "Updating a MariaDB 10.3..."
-whmapi1 start_background_mysql_upgrade version=10.3
+whmapi1 start_background_mysql_upgrade version=10.6
 echo "Configuring disabled features..."
 whmapi 1 update_featurelist featurelist = disabled api_shell = 0 agora = 0 analog = 0 boxtrapper = 0 traceaddy = 0 modules-php-pear = 0 modules-perl = 0 modules-ruby = 0 pgp = 0 phppgadmin = 0 postgres = 0 ror = 0 serverstatus = 0 webalizer = 0 clamavconnector_scan = 0 lists = 0
 echo "defaultSetting features..."
